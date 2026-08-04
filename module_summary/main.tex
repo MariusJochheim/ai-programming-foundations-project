@@ -14,6 +14,7 @@
 \usepackage{csquotes}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{enumitem}
@@ -24,12 +25,12 @@
 % -----------------------------------------------------------------------------
 % Editable metadata
 % -----------------------------------------------------------------------------
-\newcommand{\ThesisTitle}{Your Full Thesis Title Goes Here}
-\newcommand{\AuthorName}{Your Name Here}
-\newcommand{\Institution}{Your University}
-\newcommand{\CourseName}{Course Name \& Number}
-\newcommand{\SupervisorName}{Instructor or Supervisor}
-\newcommand{\SubmissionDate}{Due Date}
+\newcommand{\ThesisTitle}{AI Programming Foundations Capstone Project: Analyzing Airbnb Listings in New York City}
+\newcommand{\AuthorName}{Marius Jochheim}
+\newcommand{\Institution}{Udacity}
+\newcommand{\CourseName}{AI Programming with Python Nanodegree}
+\newcommand{\SupervisorName}{}
+\newcommand{\SubmissionDate}{\today}
 
 % -----------------------------------------------------------------------------
 % Global typography and paragraph layout
@@ -102,31 +103,16 @@
 
 \makeapatitle
 
-% Delete this environment when no abstract is required. In that case, the main
-% body begins on page 2, as described in the supplied Word template.
-\begin{thesisabstract}
-Replace this text with your abstract. Summarize the research problem, method,
-main findings, and conclusion. Add keywords below when required by your
-institution.
-
-\noindent\textit{Keywords:} keyword one, keyword two, keyword three
-\end{thesisabstract}
-
-% Uncomment when your institution requires a table of contents.
-% \clearpage
-% \tableofcontents
-
-\include{chapters/01-introduction}
-\include{chapters/02-literature-review}
-\include{chapters/03-methodology}
-\include{chapters/04-results}
-\include{chapters/05-discussion}
-\include{chapters/06-conclusion}
+\include{chapters/01-overview}
+\include{chapters/02-dataset-description}
+\include{chapters/03-workflow-description}
+\include{chapters/04-key-decisions-and-assumptions}
+\include{chapters/05-results-and-interpretation}
+\include{chapters/06-responsible-practice}
+\include{chapters/07-reproducibility}
+\include{chapters/08-conclusion}
 
 \clearpage
 \printbibliography[title={References},heading=bibintoc]
-
-\appendix
-\include{chapters/appendix-a}
 
 \end{document}

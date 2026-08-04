@@ -1,0 +1,36 @@
+\section{Responsible Practice: Bias and Data Quality}
+
+The findings are descriptive and should not be interpreted as causal. The
+dataset does not include several characteristics that may influence price,
+including property size, bedroom count, amenities, property condition,
+proximity to attractions, and public-transport access. Price differences
+associated with neighbourhood group or room type may therefore partly reflect
+unobserved variables.
+
+The neighbourhood groups are also unevenly represented. Manhattan and Brooklyn
+together account for more than 85\% of the cleaned observations, while Staten
+Island accounts for less than 1\%. Aggregate findings are consequently
+dominated by Manhattan and Brooklyn, and conclusions about smaller groups are
+based on much smaller samples. The shared-room category is also limited,
+particularly in Staten Island, where only nine shared-room listings are
+present.
+
+The \texttt{availability\_365} variable is ambiguous. Low availability could
+indicate frequent bookings, but it could also result from host-blocked dates,
+seasonal operation, or an inactive listing. High availability could indicate
+lower demand, greater supply, or a newly created listing. Availability was
+therefore not treated as a direct measure of occupancy or demand.
+
+Open datasets should not automatically be assumed to represent verified ground
+truth. Alsudais documents systemic collection errors and reproducibility
+problems across releases of the Inside Airbnb dataset
+\parencite{alsudais2020}. Although the present dataset was obtained
+from Kaggle rather than directly from an Inside Airbnb release, the same general
+caution applies to third-party platform data. The report therefore identifies
+the exact dataset source, retains the original CSV, documents all cleaning
+rules, and limits its conclusions to the supplied snapshot.
+
+Future work could reduce these risks by validating selected listings against
+another source, documenting a precise download date or version, examining
+individual neighbourhood sample sizes, and repeating the analysis with data
+from additional collection periods.

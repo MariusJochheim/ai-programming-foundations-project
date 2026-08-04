@@ -1,0 +1,28 @@
+\section{Reproducibility}
+
+The repository contains the original dataset, the complete Jupyter Notebook,
+the generated figures, this report, a \texttt{requirements.txt} file, and a
+short README with execution instructions. A reviewer can create a virtual
+environment, install the pinned dependencies with
+
+\begin{verbatim}
+pip install -r requirements.txt
+\end{verbatim}
+
+and run all cells in \texttt{data\_workflow.ipynb} from top to bottom.
+
+The notebook uses relative file paths, reusable functions, explicit cleaning
+rules, and intermediate validation checks. The unmodified data are stored in
+\texttt{df}, while the cleaned data are stored separately in
+\texttt{df\_clean}. This separation preserves the original input and makes the
+transformations easier to inspect.
+
+Git was used to record progress through multiple commits. Development work was
+performed on an additional branch before being integrated with the main branch.
+The commit history documents the progression from repository setup through
+data ingestion, cleaning, exploratory analysis, visualization, interpretation,
+and reporting.
+
+These practices support computational reproducibility by preserving the code,
+data, software dependencies, and development history needed to repeat the
+analysis \parencite{danchev2022}.

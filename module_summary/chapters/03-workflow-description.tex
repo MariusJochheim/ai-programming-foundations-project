@@ -1,0 +1,47 @@
+\section{Workflow Description}
+
+The project followed a sequential workflow consisting of data ingestion,
+inspection, cleaning, exploratory analysis, visualization, and interpretation.
+This structure was chosen to make the analytical process transparent and
+repeatable. Danchev describes reproducibility as a principle that should be
+incorporated throughout the data-science lifecycle rather than treated only as
+a final documentation activity \parencite{danchev2022}.
+
+\subsection{Ingestion}
+
+The CSV file was stored within the repository and loaded with
+\texttt{pandas.read\_csv()}. The notebook then inspected the dimensions, column
+names, data types, missing values, duplicated rows, categorical values, and
+numerical ranges before applying any transformations.
+
+\subsection{Cleaning}
+
+Two reusable cleaning functions were created. The first converted
+\texttt{last\_review} to a datetime type and handled missing review-rate values.
+The second removed records that violated explicit validity rules, including
+non-positive prices.
+
+\subsection{Exploratory Analysis}
+
+A reusable exploratory-analysis function generated numerical summaries,
+neighbourhood-level summaries, room-type summaries, combined neighbourhood
+and room-type comparisons, and a Pearson correlation matrix. Additional
+analyses examined zero availability and compared mean and median prices before
+and after limiting prices to the 99th percentile.
+
+\subsection{Visualizations}
+
+Four visualizations were created:
+
+\begin{enumerate}[label=\arabic*.]
+    \item median price by neighbourhood group and room type;
+    \item price distributions by room type;
+    \item median annual availability by neighbourhood group and room type;
+    \item correlations between numerical variables.
+\end{enumerate}
+
+\subsection{Summary}
+
+The final notebook section interpreted the calculated results, documented the
+main limitations and assumptions, and identified questions that could not be
+resolved from the available variables.
