@@ -71,3 +71,51 @@ update `requirements.txt` with:
 ```bash
 pip freeze > requirements.txt
 ```
+
+## Bias and Data Cleaning Reflection
+
+Poor data-cleaning decisions could introduce bias into this analysis. For
+example, removing every row with missing review information would
+systematically exclude listings with no reviews and make reviewed listings
+overrepresented. Similarly, deleting all unusually expensive listings could
+underrepresent luxury properties and disproportionately affect neighbourhoods
+such as Manhattan.
+
+For this reason, missing `reviews_per_month` values were replaced with zero
+only when the listing had zero recorded reviews. Missing review dates were
+retained, and high but technically possible prices were not automatically
+removed. The results for small groups, particularly shared rooms and Staten
+Island listings, should still be interpreted cautiously because their sample
+sizes are much smaller.
+
+## Future Integration Reflections
+
+### How would this workflow change for a machine-learning project?
+
+A machine-learning workflow would require a clearly defined prediction target,
+such as nightly price, followed by separate training, validation, and test
+datasets. Data-cleaning and feature-transformation steps would need to be fitted
+using only the training data to prevent information leakage. Categorical
+variables would be encoded, numerical variables might be scaled or transformed,
+and baseline models would be compared using appropriate evaluation metrics and
+cross-validation.
+
+### What preparation would be required for a neural network?
+
+Before training a neural network, categorical variables such as room type and
+neighbourhood group would need to be encoded, and numerical features would
+normally be scaled. Skewed variables such as price might require a logarithmic
+transformation. The prepared data would then be converted into tensors and
+divided into mini-batches, with separate training, validation, and test sets.
+Model architecture, regularization, stopping criteria, and evaluation metrics
+would also need to be selected carefully.
+
+### How could agentic automation support this workflow?
+
+An agentic system could automate repetitive steps such as checking the input
+schema, identifying new missing-value patterns, running validation checks,
+recreating visualizations, and generating draft reports. It could also monitor
+new dataset releases and flag changes in distributions or data quality.
+However, destructive cleaning decisions and interpretations should require
+human review because an automated agent may remove valid observations or draw
+unsupported conclusions.
