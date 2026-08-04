@@ -1,0 +1,57 @@
+\section{Key Decisions and Assumptions}
+
+\subsection{Missing Review Information}
+
+The original dataset contained 10,052 missing values in both
+\texttt{last\_review} and \texttt{reviews\_per\_month}. Inspection showed that
+these missing values were associated with listings that had zero recorded
+reviews.
+
+Missing \texttt{reviews\_per\_month} values were therefore replaced with zero
+only where \texttt{number\_of\_reviews} was also zero. This preserved
+unreviewed listings while representing their observed monthly review activity
+numerically. Missing \texttt{last\_review} values were retained because a
+listing with no reviews has no meaningful last-review date.
+
+This variable-specific approach was preferable to deleting every incomplete
+record. Missing-data treatment can affect representativeness and introduce
+bias, so the meaning and pattern of missingness should be considered before
+selecting a treatment \parencite{kang2013}.
+
+The small numbers of missing listing names and host names were retained because
+those descriptive fields were not needed for the principal price and
+availability analyses.
+
+\subsection{Invalid and Extreme Values}
+
+The cleaning process removed 11 records whose prices were zero. A non-positive
+nightly price was treated as invalid for the planned price analysis. This
+reduced the dataset from 48,895 to 48,884 listings.
+
+Large positive prices and long minimum-stay requirements were not automatically
+removed. Although these observations are unusual, the dataset provides
+insufficient evidence to classify them as errors. Removing them without an
+explicit validity rule could exclude legitimate listings and alter the observed
+distribution.
+
+The price distribution was strongly right-skewed. The full cleaned dataset had
+a mean price of \$152.76 and a median price of \$106.00. For listings priced at
+or below the 99th percentile of \$799, the mean decreased to \$137.58, whereas
+the median changed only to \$105.00. Median prices were consequently used for
+the main grouped comparisons because they were less sensitive to extreme
+values.
+
+Prices above the 99th percentile were excluded only from Figure 2 in the accompanying notebook
+to improve its readability. They remained in the cleaned dataset and in the
+other analyses.
+
+\subsection{Choice of Exploratory Comparisons}
+
+Neighbourhood group and room type were selected as the central categorical
+variables because they allowed direct comparison of location and accommodation
+category. Price and availability were grouped by both variables so that their
+combined patterns would not be hidden by separate aggregate summaries.
+
+The correlation matrix was included to examine linear relationships among the
+numerical variables. Correlation coefficients were interpreted as descriptive
+associations and not as evidence of causation.
