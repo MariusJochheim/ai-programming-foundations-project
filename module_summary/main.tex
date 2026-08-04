@@ -1,0 +1,132 @@
+\documentclass[12pt,letterpaper]{report}
+
+% -----------------------------------------------------------------------------
+% APA 7-style layout based on the supplied Word template
+% -----------------------------------------------------------------------------
+\usepackage[letterpaper,margin=1in,headheight=15pt,headsep=0.25in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath} % Times-like text and mathematics
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{references.bib}
+
+% -----------------------------------------------------------------------------
+% Editable metadata
+% -----------------------------------------------------------------------------
+\newcommand{\ThesisTitle}{Your Full Thesis Title Goes Here}
+\newcommand{\AuthorName}{Your Name Here}
+\newcommand{\Institution}{Your University}
+\newcommand{\CourseName}{Course Name \& Number}
+\newcommand{\SupervisorName}{Instructor or Supervisor}
+\newcommand{\SubmissionDate}{Due Date}
+
+% -----------------------------------------------------------------------------
+% Global typography and paragraph layout
+% -----------------------------------------------------------------------------
+\doublespacing
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\setlist{nosep}
+
+% Page number at the upper-right, including the title page.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% APA-like heading levels. The supplied template uses centered bold headings.
+\titleformat{\chapter}[block]
+  {\normalfont\bfseries\centering}
+  {}{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+\titleformat{\section}[block]
+  {\normalfont\bfseries\centering}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+\titleformat{\subsection}[block]
+  {\normalfont\bfseries\raggedright}
+  {}{0pt}{}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+\titleformat{\subsubsection}[runin]
+  {\normalfont\bfseries\itshape}
+  {}{0pt}{}[.]
+
+% Captions: bold label, regular title; no extra single-spacing override.
+\captionsetup{font=normalsize,labelfont=bf,labelsep=newline,justification=raggedright,singlelinecheck=false}
+
+% -----------------------------------------------------------------------------
+% Template-specific front matter
+% -----------------------------------------------------------------------------
+\newcommand{\makeapatitle}{%
+  \thispagestyle{fancy}
+  \begin{center}
+    \vspace*{2.5in}
+    {\bfseries \ThesisTitle\par}
+    \vspace{1\baselineskip}
+    \AuthorName\par
+    \Institution\par
+    \CourseName\par
+    \SupervisorName\par
+    \SubmissionDate\par
+  \end{center}
+  \clearpage
+}
+
+\newenvironment{thesisabstract}{%
+  \clearpage
+  \chapter*{Abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+}{\par}
+
+\begin{document}
+
+\makeapatitle
+
+% Delete this environment when no abstract is required. In that case, the main
+% body begins on page 2, as described in the supplied Word template.
+\begin{thesisabstract}
+Replace this text with your abstract. Summarize the research problem, method,
+main findings, and conclusion. Add keywords below when required by your
+institution.
+
+\noindent\textit{Keywords:} keyword one, keyword two, keyword three
+\end{thesisabstract}
+
+% Uncomment when your institution requires a table of contents.
+% \clearpage
+% \tableofcontents
+
+\include{chapters/01-introduction}
+\include{chapters/02-literature-review}
+\include{chapters/03-methodology}
+\include{chapters/04-results}
+\include{chapters/05-discussion}
+\include{chapters/06-conclusion}
+
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
+\appendix
+\include{chapters/appendix-a}
+
+\end{document}
